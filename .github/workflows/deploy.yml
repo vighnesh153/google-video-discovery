@@ -1,9 +1,15 @@
 name: Deploy
+
 on:
+  workflow_dispatch:
   push:
     branches: main
+    paths:
+      - "docs/**"
   pull_request:
     branches: main
+    paths:
+      - "docs/**"
 
 jobs:
   deploy:
@@ -33,10 +39,10 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "npm install"
+        run: "deno install"
 
       - name: Build step
-        run: "npm run build"
+        run: "deno run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
