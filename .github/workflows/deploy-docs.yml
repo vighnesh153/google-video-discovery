@@ -13,7 +13,7 @@ on:
 
 jobs:
   deploy-docs:
-    name: Deploy
+    name: Deploy docs
     runs-on: ubuntu-latest
 
     defaults:
@@ -28,25 +28,20 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
-      - name: Install Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
       - name: Install step
-        run: "deno install"
+        run: "npm install"
 
       - name: Build step
-        run: "deno run build"
+        run: "npm run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "google-videodiscovery"
-          entrypoint: "server/entry.mjs"
+          entrypoint: "https://jsr.io/@std/http/1.0.7/file_server.ts"
           root: "dist"

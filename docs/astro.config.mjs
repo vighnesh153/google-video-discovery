@@ -2,17 +2,13 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-import deno from "@deno/astro-adapter";
-
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
-  adapter: deno(),
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "Google Video Discovery",
       social: {
-        github: "https://github.com/withastro/starlight",
+        github: "https://github.com/vighnesh153/google-video-discovery",
       },
       sidebar: [
         {
