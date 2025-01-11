@@ -10,6 +10,10 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./docs
+
     permissions:
       id-token: write # Needed for auth with Deno Deploy
       contents: read # Needed to clone the repository
@@ -40,5 +44,3 @@ jobs:
           project: "google-videodiscovery"
           entrypoint: "server/entry.mjs"
           root: "dist"
-          
-          
