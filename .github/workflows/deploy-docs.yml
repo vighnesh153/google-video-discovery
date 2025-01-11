@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy Docs
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
       - "docs/**"
 
 jobs:
-  deploy:
+  deploy-docs:
     name: Deploy
     runs-on: ubuntu-latest
 
